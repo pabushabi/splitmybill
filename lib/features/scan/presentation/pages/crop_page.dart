@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math' as math;
 import 'dart:typed_data';
 
 import 'package:crop_your_image/crop_your_image.dart';
@@ -17,6 +18,7 @@ import '../cubit/capture_cubit.dart';
 import '../cubit/capture_state.dart';
 import '../widgets/camera_round_button.dart';
 import '../widgets/crop_hint_bar.dart';
+import '../widgets/receipt_crop_view.dart';
 import '../widgets/recognizing_overlay.dart';
 
 /// Обрезка снимка перед распознаванием: чем меньше лишнего, тем точнее OCR.
@@ -34,6 +36,8 @@ class _CropPageState extends State<CropPage> {
 
   Uint8List? _imageBytes;
   bool _isCropping = false;
+
+  static const double _minHorizontalPadding = 24;
 
   @override
   void initState() {
@@ -82,6 +86,14 @@ class _CropPageState extends State<CropPage> {
     }
   }
 
+  EdgeInsets _cropInsets(BuildContext context) {
+    final EdgeInsets gestures = MediaQuery.systemGestureInsetsOf(context);
+    return EdgeInsets.only(
+      left: math.max(_minHorizontalPadding, gestures.left) + AppSpacing.sm,
+      right: math.max(_minHorizontalPadding, gestures.right) + AppSpacing.sm,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final Uint8List? bytes = _imageBytes;
@@ -110,22 +122,6 @@ class _CropPageState extends State<CropPage> {
           return Stack(
             fit: StackFit.expand,
             children: <Widget>[
-              if (bytes == null)
-                const Center(
-                  child: CircularProgressIndicator(color: Colors.white),
-                )
-              else
-                Crop(
-                  controller: _cropController,
-                  image: bytes,
-                  onCropped: _onCropped,
-                  baseColor: Colors.black,
-                  maskColor: Colors.black.withValues(alpha: 0.6),
-                  cornerDotBuilder: (double size, EdgeAlignment alignment) =>
-                      const DotControl(color: Colors.white),
-                  interactive: true,
-                  radius: 8,
-                ),
               SafeArea(
                 child: Column(
                   children: <Widget>[
@@ -140,7 +136,22 @@ class _CropPageState extends State<CropPage> {
                         ],
                       ),
                     ),
-                    const Spacer(),
+                    Expanded(
+                      child: Padding(
+                        padding: _cropInsets(context),
+                        child: bytes == null
+                            ? const Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                ),
+                              )
+                            : ReceiptCropView(
+                                image: bytes,
+                                controller: _cropController,
+                                onCropped: _onCropped,
+                              ),
+                      ),
+                    ),
                     const CropHintBar(text: AppStrings.captureCropHint),
                     const SizedBox(height: AppSpacing.lg),
                     Padding(
