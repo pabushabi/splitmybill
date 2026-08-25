@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/widgets/guest_avatar.dart';
-import '../../../guests/domain/entities/guest.dart';
+import 'package:splitmybill/core/widgets/guest_avatar.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
 
 class AssignedAvatarsStack extends StatelessWidget {
   const AssignedAvatarsStack({

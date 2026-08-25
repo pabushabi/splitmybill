@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_durations.dart';
+import 'package:splitmybill/core/constants/app_durations.dart';
 
 /// Большая круглая кнопка спуска затвора.
 class CaptureButton extends StatelessWidget {

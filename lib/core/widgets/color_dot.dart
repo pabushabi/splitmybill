@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app_durations.dart';
-import '../extensions/build_context_x.dart';
-import '../theme/guest_palette.dart';
+import 'package:splitmybill/core/constants/app_durations.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/theme/guest_palette.dart';
 
 /// Кружок цвета в палитре выбора: при выборе показывает галочку.
 class ColorDot extends StatelessWidget {

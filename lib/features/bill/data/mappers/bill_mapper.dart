@@ -1,12 +1,12 @@
-import '../../../guests/data/mappers/guest_mapper.dart';
-import '../../../guests/data/models/guest_dto.dart';
-import '../../../guests/domain/entities/guest.dart';
-import '../../domain/entities/bill.dart';
-import '../../domain/entities/bill_item.dart';
-import '../../domain/entities/item_assignment.dart';
-import '../models/bill_dto.dart';
-import '../models/bill_item_dto.dart';
-import '../models/item_assignment_dto.dart';
+import 'package:splitmybill/features/guests/data/mappers/guest_mapper.dart';
+import 'package:splitmybill/features/guests/data/models/guest_dto.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill_item.dart';
+import 'package:splitmybill/features/bill/domain/entities/item_assignment.dart';
+import 'package:splitmybill/features/bill/data/models/bill_dto.dart';
+import 'package:splitmybill/features/bill/data/models/bill_item_dto.dart';
+import 'package:splitmybill/features/bill/data/models/item_assignment_dto.dart';
 
 extension BillDtoMapper on BillDto {
   Bill toDomain() {

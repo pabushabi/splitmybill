@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app_spacing.dart';
-import '../constants/app_strings.dart';
-import '../extensions/build_context_x.dart';
-import '../theme/app_typography.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/theme/app_typography.dart';
 import 'app_button.dart';
 
 class ErrorView extends StatelessWidget {

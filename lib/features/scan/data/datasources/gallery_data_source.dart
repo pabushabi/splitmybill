@@ -1,7 +1,7 @@
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/error/exceptions.dart';
+import 'package:splitmybill/core/error/exceptions.dart';
 
 abstract interface class GalleryDataSource {
   Future<String?> pickImage();

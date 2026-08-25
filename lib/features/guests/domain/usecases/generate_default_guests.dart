@@ -1,9 +1,9 @@
 import 'package:injectable/injectable.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/theme/guest_palette.dart';
-import '../entities/guest.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/theme/guest_palette.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
 
 /// Готовит список гостей для нового счёта.
 ///

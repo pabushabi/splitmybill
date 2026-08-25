@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/widgets/app_text_field.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/widgets/app_text_field.dart';
 
 class GuestNameField extends StatelessWidget {
   const GuestNameField({

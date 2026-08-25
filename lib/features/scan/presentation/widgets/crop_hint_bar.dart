@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_radius.dart';
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/theme/app_typography.dart';
+import 'package:splitmybill/core/constants/app_radius.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/theme/app_typography.dart';
 
 class CropHintBar extends StatelessWidget {
   const CropHintBar({required this.text, super.key});

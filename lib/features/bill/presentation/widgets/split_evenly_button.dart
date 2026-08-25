@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/widgets/app_button.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/widgets/app_button.dart';
 
 class SplitEvenlyButton extends StatelessWidget {
   const SplitEvenlyButton({required this.onPressed, super.key});

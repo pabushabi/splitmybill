@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../core/storage/hive_boxes.dart';
+import 'package:splitmybill/core/storage/hive_boxes.dart';
 
 /// Регистрация сторонних зависимостей, которые нельзя пометить аннотацией.
 @module

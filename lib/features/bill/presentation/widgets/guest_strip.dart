@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_spacing.dart';
-import '../../../guests/domain/entities/guest.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
 import 'guest_strip_item.dart';
 
 class GuestStrip extends StatelessWidget {

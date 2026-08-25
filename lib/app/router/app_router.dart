@@ -3,21 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../core/constants/app_durations.dart';
-import '../../features/bill/presentation/cubit/history_cubit.dart';
-import '../../features/bill/presentation/pages/history_detail_page.dart';
-import '../../features/bill/presentation/pages/history_page.dart';
-import '../../features/bill/presentation/pages/split_page.dart';
-import '../../features/bill/presentation/pages/summary_page.dart';
-import '../../features/guests/presentation/pages/guests_page.dart';
-import '../../features/home/presentation/pages/home_page.dart';
-import '../../features/scan/domain/entities/parsed_receipt.dart';
-import '../../features/scan/presentation/cubit/capture_cubit.dart';
-import '../../features/scan/presentation/cubit/review_cubit.dart';
-import '../../features/scan/presentation/pages/capture_page.dart';
-import '../../features/scan/presentation/pages/crop_page.dart';
-import '../../features/scan/presentation/pages/review_page.dart';
-import '../di/injection.dart';
+import 'package:splitmybill/core/constants/app_durations.dart';
+import 'package:splitmybill/features/bill/presentation/cubit/history_cubit.dart';
+import 'package:splitmybill/features/bill/presentation/pages/history_detail_page.dart';
+import 'package:splitmybill/features/bill/presentation/pages/history_page.dart';
+import 'package:splitmybill/features/bill/presentation/pages/split_page.dart';
+import 'package:splitmybill/features/bill/presentation/pages/summary_page.dart';
+import 'package:splitmybill/features/guests/presentation/pages/guests_page.dart';
+import 'package:splitmybill/features/home/presentation/pages/home_page.dart';
+import 'package:splitmybill/features/scan/domain/entities/parsed_receipt.dart';
+import 'package:splitmybill/features/scan/presentation/cubit/capture_cubit.dart';
+import 'package:splitmybill/features/scan/presentation/cubit/review_cubit.dart';
+import 'package:splitmybill/features/scan/presentation/pages/capture_page.dart';
+import 'package:splitmybill/features/scan/presentation/pages/crop_page.dart';
+import 'package:splitmybill/features/scan/presentation/pages/review_page.dart';
+import 'package:splitmybill/app/di/injection.dart';
 import 'app_routes.dart';
 
 @lazySingleton

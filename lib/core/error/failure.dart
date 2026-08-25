@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../constants/app_strings.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
 
 part 'failure.freezed.dart';
 

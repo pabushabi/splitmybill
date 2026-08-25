@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../app/router/app_routes.dart';
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../../../../core/widgets/empty_view.dart';
-import '../../../../core/widgets/error_view.dart';
-import '../../../../core/widgets/loading_view.dart';
-import '../../domain/entities/bill.dart';
-import '../cubit/history_cubit.dart';
-import '../cubit/history_state.dart';
-import '../widgets/history_bill_tile.dart';
+import 'package:splitmybill/app/router/app_routes.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/widgets/empty_view.dart';
+import 'package:splitmybill/core/widgets/error_view.dart';
+import 'package:splitmybill/core/widgets/loading_view.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill.dart';
+import 'package:splitmybill/features/bill/presentation/cubit/history_cubit.dart';
+import 'package:splitmybill/features/bill/presentation/cubit/history_state.dart';
+import 'package:splitmybill/features/bill/presentation/widgets/history_bill_tile.dart';
 
 class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});

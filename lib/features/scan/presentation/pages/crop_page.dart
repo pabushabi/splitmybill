@@ -8,18 +8,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../../../../app/router/app_routes.dart';
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../../../../core/widgets/app_button.dart';
-import '../../domain/entities/parsed_receipt.dart';
-import '../cubit/capture_cubit.dart';
-import '../cubit/capture_state.dart';
-import '../widgets/camera_round_button.dart';
-import '../widgets/crop_hint_bar.dart';
-import '../widgets/receipt_crop_view.dart';
-import '../widgets/recognizing_overlay.dart';
+import 'package:splitmybill/app/router/app_routes.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/widgets/app_button.dart';
+import 'package:splitmybill/features/scan/domain/entities/parsed_receipt.dart';
+import 'package:splitmybill/features/scan/presentation/cubit/capture_cubit.dart';
+import 'package:splitmybill/features/scan/presentation/cubit/capture_state.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/camera_round_button.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/crop_hint_bar.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/receipt_crop_view.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/recognizing_overlay.dart';
 
 /// Обрезка снимка перед распознаванием: чем меньше лишнего, тем точнее OCR.
 class CropPage extends StatefulWidget {

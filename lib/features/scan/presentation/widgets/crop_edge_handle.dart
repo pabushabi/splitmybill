@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_radius.dart';
+import 'package:splitmybill/core/constants/app_radius.dart';
 
 enum CropHandleAxis { horizontal, vertical }
 

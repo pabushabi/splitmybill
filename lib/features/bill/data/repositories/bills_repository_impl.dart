@@ -1,11 +1,11 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/utils/result.dart';
-import '../../domain/entities/bill.dart';
-import '../../domain/repositories/bills_repository.dart';
-import '../datasources/bills_local_data_source.dart';
-import '../mappers/bill_mapper.dart';
-import '../models/bill_dto.dart';
+import 'package:splitmybill/core/utils/result.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill.dart';
+import 'package:splitmybill/features/bill/domain/repositories/bills_repository.dart';
+import 'package:splitmybill/features/bill/data/datasources/bills_local_data_source.dart';
+import 'package:splitmybill/features/bill/data/mappers/bill_mapper.dart';
+import 'package:splitmybill/features/bill/data/models/bill_dto.dart';
 
 @LazySingleton(as: BillsRepository)
 class BillsRepositoryImpl implements BillsRepository {

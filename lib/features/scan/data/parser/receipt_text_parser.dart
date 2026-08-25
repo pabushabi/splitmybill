@@ -1,12 +1,12 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/extensions/string_x.dart';
-import '../../../../core/utils/money_parser.dart';
-import '../../domain/entities/ocr_line.dart';
-import '../../domain/entities/ocr_result.dart';
-import '../../domain/entities/parsed_item.dart';
-import '../../domain/entities/parsed_receipt.dart';
-import '../../domain/services/receipt_parser.dart';
+import 'package:splitmybill/core/extensions/string_x.dart';
+import 'package:splitmybill/core/utils/money_parser.dart';
+import 'package:splitmybill/features/scan/domain/entities/ocr_line.dart';
+import 'package:splitmybill/features/scan/domain/entities/ocr_result.dart';
+import 'package:splitmybill/features/scan/domain/entities/parsed_item.dart';
+import 'package:splitmybill/features/scan/domain/entities/parsed_receipt.dart';
+import 'package:splitmybill/features/scan/domain/services/receipt_parser.dart';
 import 'line_classifier.dart';
 import 'receipt_line_kind.dart';
 import 'receipt_line_normalizer.dart';

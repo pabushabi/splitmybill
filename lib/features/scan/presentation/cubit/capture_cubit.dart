@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/error/failure.dart';
-import '../../../../core/state/cubit_state.dart';
-import '../../data/datasources/camera_permission_data_source.dart';
-import '../../domain/entities/parsed_receipt.dart';
-import '../../domain/repositories/receipt_scan_repository.dart';
-import '../../domain/usecases/pick_receipt_image.dart';
-import '../../domain/usecases/recognize_receipt.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/error/failure.dart';
+import 'package:splitmybill/core/state/cubit_state.dart';
+import 'package:splitmybill/features/scan/data/datasources/camera_permission_data_source.dart';
+import 'package:splitmybill/features/scan/domain/entities/parsed_receipt.dart';
+import 'package:splitmybill/features/scan/domain/repositories/receipt_scan_repository.dart';
+import 'package:splitmybill/features/scan/domain/usecases/pick_receipt_image.dart';
+import 'package:splitmybill/features/scan/domain/usecases/recognize_receipt.dart';
 import 'capture_state.dart';
 
 /// Ведёт съёмку чека: разрешения, выбор снимка и распознавание.

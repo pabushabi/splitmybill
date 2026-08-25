@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../app/router/app_routes.dart';
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../../../../core/theme/app_typography.dart';
-import '../../../../core/utils/money_formatter.dart';
-import '../../../../core/widgets/app_button.dart';
-import '../../../../core/widgets/empty_view.dart';
-import '../../../bill/domain/entities/bill_item.dart';
-import '../../../bill/presentation/cubit/split_cubit.dart';
-import '../cubit/review_cubit.dart';
-import '../cubit/review_state.dart';
-import '../widgets/add_item_button.dart';
-import '../widgets/receipt_total_mismatch_banner.dart';
-import '../widgets/review_item_editor_sheet.dart';
-import '../widgets/review_item_tile.dart';
+import 'package:splitmybill/app/router/app_routes.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/theme/app_typography.dart';
+import 'package:splitmybill/core/utils/money_formatter.dart';
+import 'package:splitmybill/core/widgets/app_button.dart';
+import 'package:splitmybill/core/widgets/empty_view.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill_item.dart';
+import 'package:splitmybill/features/bill/presentation/cubit/split_cubit.dart';
+import 'package:splitmybill/features/scan/presentation/cubit/review_cubit.dart';
+import 'package:splitmybill/features/scan/presentation/cubit/review_state.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/add_item_button.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/receipt_total_mismatch_banner.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/review_item_editor_sheet.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/review_item_tile.dart';
 
 class ReviewPage extends StatelessWidget {
   const ReviewPage({super.key});

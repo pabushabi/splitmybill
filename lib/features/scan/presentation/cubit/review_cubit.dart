@@ -2,10 +2,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../../core/state/cubit_state.dart';
-import '../../../bill/domain/entities/bill_item.dart';
-import '../../domain/entities/parsed_item.dart';
-import '../../domain/entities/parsed_receipt.dart';
+import 'package:splitmybill/core/state/cubit_state.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill_item.dart';
+import 'package:splitmybill/features/scan/domain/entities/parsed_item.dart';
+import 'package:splitmybill/features/scan/domain/entities/parsed_receipt.dart';
 import 'review_state.dart';
 
 /// Правка распознанных позиций перед распределением.

@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import '../entities/bill.dart';
-import '../entities/bill_totals.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill_totals.dart';
 
 @lazySingleton
 class CalculateBillTotals {

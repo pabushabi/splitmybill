@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../core/constants/app_radius.dart';
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../../../../core/theme/app_typography.dart';
-import '../../../../core/utils/money_parser.dart';
+import 'package:splitmybill/core/constants/app_radius.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/theme/app_typography.dart';
+import 'package:splitmybill/core/utils/money_parser.dart';
 
 class TipSelector extends StatefulWidget {
   const TipSelector({

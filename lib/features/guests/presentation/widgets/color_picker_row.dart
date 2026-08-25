@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/theme/guest_palette.dart';
-import '../../../../core/widgets/color_dot.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/theme/guest_palette.dart';
+import 'package:splitmybill/core/widgets/color_dot.dart';
 
 class ColorPickerRow extends StatelessWidget {
   const ColorPickerRow({

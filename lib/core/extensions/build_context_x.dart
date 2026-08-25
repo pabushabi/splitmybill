@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../theme/app_colors.dart';
-import '../theme/app_shadows.dart';
-import '../theme/app_theme_extension.dart';
+import 'package:splitmybill/core/theme/app_colors.dart';
+import 'package:splitmybill/core/theme/app_shadows.dart';
+import 'package:splitmybill/core/theme/app_theme_extension.dart';
 
 extension BuildContextX on BuildContext {
   ThemeData get theme => Theme.of(this);

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_radius.dart';
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../../../../core/theme/app_typography.dart';
-import '../../../../core/utils/money_formatter.dart';
-import '../../../guests/domain/entities/guest.dart';
-import '../../domain/entities/bill_item.dart';
+import 'package:splitmybill/core/constants/app_radius.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/theme/app_typography.dart';
+import 'package:splitmybill/core/utils/money_formatter.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill_item.dart';
 import 'assigned_avatars_stack.dart';
 
 class BillItemTile extends StatelessWidget {

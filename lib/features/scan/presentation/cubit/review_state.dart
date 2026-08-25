@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/state/cubit_state.dart';
-import '../../../bill/domain/entities/bill_item.dart';
+import 'package:splitmybill/core/state/cubit_state.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill_item.dart';
 
 part 'review_state.freezed.dart';
 

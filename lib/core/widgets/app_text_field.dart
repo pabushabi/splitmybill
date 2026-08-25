@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../constants/app_spacing.dart';
-import '../extensions/build_context_x.dart';
-import '../theme/app_typography.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/theme/app_typography.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({

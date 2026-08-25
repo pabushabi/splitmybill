@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-import '../constants/app_strings.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
 
 /// Форматирование денежных сумм, хранящихся в копейках.
 abstract final class MoneyFormatter {

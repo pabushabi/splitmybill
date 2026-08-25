@@ -1,5 +1,5 @@
-import '../../domain/entities/guest.dart';
-import '../models/guest_dto.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/guests/data/models/guest_dto.dart';
 
 extension GuestDtoMapper on GuestDto {
   Guest toDomain() => Guest(

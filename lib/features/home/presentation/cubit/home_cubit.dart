@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../guests/domain/entities/guest.dart';
-import '../../../guests/domain/usecases/generate_default_guests.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/guests/domain/usecases/generate_default_guests.dart';
 import 'home_state.dart';
 
 /// Выбор состава компании перед сканированием чека.

@@ -2,13 +2,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../../core/error/failure.dart';
-import '../../../../core/state/cubit_state.dart';
-import '../../../../core/theme/guest_palette.dart';
-import '../../domain/entities/guest.dart';
-import '../../domain/usecases/delete_guest.dart';
-import '../../domain/usecases/get_saved_guests.dart';
-import '../../domain/usecases/save_guest.dart';
+import 'package:splitmybill/core/error/failure.dart';
+import 'package:splitmybill/core/state/cubit_state.dart';
+import 'package:splitmybill/core/theme/guest_palette.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/guests/domain/usecases/delete_guest.dart';
+import 'package:splitmybill/features/guests/domain/usecases/get_saved_guests.dart';
+import 'package:splitmybill/features/guests/domain/usecases/save_guest.dart';
 import 'guests_state.dart';
 
 /// Управляет справочником постоянных гостей.

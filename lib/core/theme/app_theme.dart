@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../constants/app_radius.dart';
-import '../constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_radius.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
 import 'app_colors.dart';
 import 'app_theme_extension.dart';
 import 'app_typography.dart';

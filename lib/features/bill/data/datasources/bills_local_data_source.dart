@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:hive_ce/hive.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/error/exceptions.dart';
-import '../../../../core/storage/hive_boxes.dart';
-import '../models/bill_dto.dart';
+import 'package:splitmybill/core/error/exceptions.dart';
+import 'package:splitmybill/core/storage/hive_boxes.dart';
+import 'package:splitmybill/features/bill/data/models/bill_dto.dart';
 
 abstract interface class BillsLocalDataSource {
   Future<List<BillDto>> readAll();

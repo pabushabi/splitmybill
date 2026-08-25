@@ -1,4 +1,4 @@
-import '../../../guests/data/models/guest_dto.dart';
+import 'package:splitmybill/features/guests/data/models/guest_dto.dart';
 import 'bill_item_dto.dart';
 import 'item_assignment_dto.dart';
 

@@ -3,22 +3,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../../../../core/theme/app_typography.dart';
-import '../../../../core/utils/date_formatter.dart';
-import '../../../../core/utils/money_formatter.dart';
-import '../../../../core/widgets/app_button.dart';
-import '../../../../core/widgets/app_card.dart';
-import '../../../../core/widgets/error_view.dart';
-import '../../../../core/widgets/loading_view.dart';
-import '../../domain/entities/bill.dart';
-import '../../domain/entities/guest_share.dart';
-import '../../domain/services/bill_share_text.dart';
-import '../cubit/history_cubit.dart';
-import '../cubit/history_state.dart';
-import '../widgets/guest_share_card.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/theme/app_typography.dart';
+import 'package:splitmybill/core/utils/date_formatter.dart';
+import 'package:splitmybill/core/utils/money_formatter.dart';
+import 'package:splitmybill/core/widgets/app_button.dart';
+import 'package:splitmybill/core/widgets/app_card.dart';
+import 'package:splitmybill/core/widgets/error_view.dart';
+import 'package:splitmybill/core/widgets/loading_view.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill.dart';
+import 'package:splitmybill/features/bill/domain/entities/guest_share.dart';
+import 'package:splitmybill/features/bill/domain/services/bill_share_text.dart';
+import 'package:splitmybill/features/bill/presentation/cubit/history_cubit.dart';
+import 'package:splitmybill/features/bill/presentation/cubit/history_state.dart';
+import 'package:splitmybill/features/bill/presentation/widgets/guest_share_card.dart';
 
 class HistoryDetailPage extends StatefulWidget {
   const HistoryDetailPage({required this.billId, super.key});

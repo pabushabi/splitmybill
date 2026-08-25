@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../../../../core/extensions/string_x.dart';
-import '../../../../core/theme/app_typography.dart';
-import '../../../../core/utils/money_formatter.dart';
-import '../../../../core/utils/money_parser.dart';
-import '../../../../core/widgets/app_bottom_sheet.dart';
-import '../../../../core/widgets/app_button.dart';
-import '../../../../core/widgets/app_text_field.dart';
-import '../../../../core/widgets/count_stepper.dart';
-import '../../../bill/domain/entities/bill_item.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/extensions/string_x.dart';
+import 'package:splitmybill/core/theme/app_typography.dart';
+import 'package:splitmybill/core/utils/money_formatter.dart';
+import 'package:splitmybill/core/utils/money_parser.dart';
+import 'package:splitmybill/core/widgets/app_bottom_sheet.dart';
+import 'package:splitmybill/core/widgets/app_button.dart';
+import 'package:splitmybill/core/widgets/app_text_field.dart';
+import 'package:splitmybill/core/widgets/count_stepper.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill_item.dart';
 
 /// Правка одной позиции: название, цена за штуку и количество.
 class ReviewItemEditorSheet extends StatefulWidget {

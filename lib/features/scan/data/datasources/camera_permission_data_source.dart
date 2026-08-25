@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../../../core/error/exceptions.dart';
+import 'package:splitmybill/core/error/exceptions.dart';
 
 abstract interface class CameraPermissionDataSource {
   /// Возвращает `true`, если доступ к камере есть.

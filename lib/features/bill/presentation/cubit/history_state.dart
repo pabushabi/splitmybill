@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/state/cubit_state.dart';
-import '../../domain/entities/bill.dart';
-import '../../domain/entities/guest_share.dart';
+import 'package:splitmybill/core/state/cubit_state.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill.dart';
+import 'package:splitmybill/features/bill/domain/entities/guest_share.dart';
 
 part 'history_state.freezed.dart';
 

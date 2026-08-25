@@ -1,7 +1,7 @@
 import 'package:flutter/painting.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/theme/guest_palette.dart';
+import 'package:splitmybill/core/theme/guest_palette.dart';
 
 part 'guest.freezed.dart';
 

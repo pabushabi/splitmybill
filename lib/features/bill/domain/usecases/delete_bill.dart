@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/utils/result.dart';
-import '../repositories/bills_repository.dart';
+import 'package:splitmybill/core/utils/result.dart';
+import 'package:splitmybill/features/bill/domain/repositories/bills_repository.dart';
 
 @lazySingleton
 class DeleteBill {

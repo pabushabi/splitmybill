@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app_radius.dart';
-import '../constants/app_spacing.dart';
-import '../extensions/build_context_x.dart';
+import 'package:splitmybill/core/constants/app_radius.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
 
 /// Базовая карточка-контейнер с фоном поверхности и мягкой тенью.
 class AppCard extends StatelessWidget {

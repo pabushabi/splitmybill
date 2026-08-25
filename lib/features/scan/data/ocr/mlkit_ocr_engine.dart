@@ -1,10 +1,10 @@
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/error/exceptions.dart';
-import '../../domain/entities/ocr_line.dart';
-import '../../domain/entities/ocr_result.dart';
-import '../../domain/services/ocr_engine.dart';
+import 'package:splitmybill/core/error/exceptions.dart';
+import 'package:splitmybill/features/scan/domain/entities/ocr_line.dart';
+import 'package:splitmybill/features/scan/domain/entities/ocr_result.dart';
+import 'package:splitmybill/features/scan/domain/services/ocr_engine.dart';
 import 'image_preprocessor.dart';
 
 /// Запасной движок: латинская модель ML Kit.

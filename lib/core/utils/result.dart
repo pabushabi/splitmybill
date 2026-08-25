@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../error/exceptions.dart';
-import '../error/failure.dart';
+import 'package:splitmybill/core/error/exceptions.dart';
+import 'package:splitmybill/core/error/failure.dart';
 
 part 'result.freezed.dart';
 

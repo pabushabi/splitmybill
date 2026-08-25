@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_durations.dart';
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../../../../core/theme/app_typography.dart';
-import '../../../../core/utils/money_formatter.dart';
-import '../../../../core/widgets/app_card.dart';
-import '../../../../core/widgets/guest_avatar.dart';
-import '../../domain/entities/guest_share.dart';
-import '../../domain/entities/share_line.dart';
+import 'package:splitmybill/core/constants/app_durations.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/theme/app_typography.dart';
+import 'package:splitmybill/core/utils/money_formatter.dart';
+import 'package:splitmybill/core/widgets/app_card.dart';
+import 'package:splitmybill/core/widgets/guest_avatar.dart';
+import 'package:splitmybill/features/bill/domain/entities/guest_share.dart';
+import 'package:splitmybill/features/bill/domain/entities/share_line.dart';
 import 'share_line_row.dart';
 
 class GuestShareCard extends StatefulWidget {

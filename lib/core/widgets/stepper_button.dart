@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../extensions/build_context_x.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
 
 /// Круглая кнопка «плюс/минус» для [CountStepper].
 class StepperButton extends StatelessWidget {

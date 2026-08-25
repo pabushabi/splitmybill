@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../../../../core/widgets/empty_view.dart';
-import '../../../../core/widgets/error_view.dart';
-import '../../../../core/widgets/loading_view.dart';
-import '../../domain/entities/guest.dart';
-import '../cubit/guests_cubit.dart';
-import '../cubit/guests_state.dart';
-import '../widgets/add_guest_button.dart';
-import '../widgets/guest_editor_sheet.dart';
-import '../widgets/guest_list_tile.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/core/widgets/empty_view.dart';
+import 'package:splitmybill/core/widgets/error_view.dart';
+import 'package:splitmybill/core/widgets/loading_view.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/guests/presentation/cubit/guests_cubit.dart';
+import 'package:splitmybill/features/guests/presentation/cubit/guests_state.dart';
+import 'package:splitmybill/features/guests/presentation/widgets/add_guest_button.dart';
+import 'package:splitmybill/features/guests/presentation/widgets/guest_editor_sheet.dart';
+import 'package:splitmybill/features/guests/presentation/widgets/guest_list_tile.dart';
 
 class GuestsPage extends StatelessWidget {
   const GuestsPage({super.key});

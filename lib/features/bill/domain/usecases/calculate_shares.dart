@@ -1,12 +1,12 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/utils/money_splitter.dart';
-import '../../../guests/domain/entities/guest.dart';
-import '../entities/bill.dart';
-import '../entities/bill_item.dart';
-import '../entities/guest_share.dart';
-import '../entities/item_assignment.dart';
-import '../entities/share_line.dart';
+import 'package:splitmybill/core/utils/money_splitter.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill_item.dart';
+import 'package:splitmybill/features/bill/domain/entities/guest_share.dart';
+import 'package:splitmybill/features/bill/domain/entities/item_assignment.dart';
+import 'package:splitmybill/features/bill/domain/entities/share_line.dart';
 
 /// Считает, сколько должен каждый гость.
 ///

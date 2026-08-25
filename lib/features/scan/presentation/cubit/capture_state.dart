@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/state/cubit_state.dart';
-import '../../domain/entities/parsed_receipt.dart';
+import 'package:splitmybill/core/state/cubit_state.dart';
+import 'package:splitmybill/features/scan/domain/entities/parsed_receipt.dart';
 
 part 'capture_state.freezed.dart';
 

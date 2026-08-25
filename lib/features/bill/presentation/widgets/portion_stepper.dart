@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/widgets/count_stepper.dart';
+import 'package:splitmybill/core/widgets/count_stepper.dart';
 
 class PortionStepper extends StatelessWidget {
   const PortionStepper({

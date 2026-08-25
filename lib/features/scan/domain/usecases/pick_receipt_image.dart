@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/utils/result.dart';
-import '../repositories/receipt_scan_repository.dart';
+import 'package:splitmybill/core/utils/result.dart';
+import 'package:splitmybill/features/scan/domain/repositories/receipt_scan_repository.dart';
 
 @lazySingleton
 class PickReceiptImage {

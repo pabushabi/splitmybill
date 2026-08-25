@@ -1,10 +1,10 @@
 import 'package:flutter_tesseract_ocr/flutter_tesseract_ocr.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/constants/app_assets.dart';
-import '../../../../core/error/exceptions.dart';
-import '../../domain/entities/ocr_result.dart';
-import '../../domain/services/ocr_engine.dart';
+import 'package:splitmybill/core/constants/app_assets.dart';
+import 'package:splitmybill/core/error/exceptions.dart';
+import 'package:splitmybill/features/scan/domain/entities/ocr_result.dart';
+import 'package:splitmybill/features/scan/domain/services/ocr_engine.dart';
 import 'image_preprocessor.dart';
 
 /// Основной движок: Tesseract с русской и английской моделями.

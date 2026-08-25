@@ -3,15 +3,15 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../../core/error/failure.dart';
-import '../../../../core/state/cubit_state.dart';
-import '../../../../core/storage/app_prefs_keys.dart';
-import '../../../guests/domain/entities/guest.dart';
-import '../../domain/entities/bill.dart';
-import '../../domain/entities/bill_item.dart';
-import '../../domain/entities/item_assignment.dart';
-import '../../domain/usecases/calculate_shares.dart';
-import '../../domain/usecases/save_bill.dart';
+import 'package:splitmybill/core/error/failure.dart';
+import 'package:splitmybill/core/state/cubit_state.dart';
+import 'package:splitmybill/core/storage/app_prefs_keys.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill_item.dart';
+import 'package:splitmybill/features/bill/domain/entities/item_assignment.dart';
+import 'package:splitmybill/features/bill/domain/usecases/calculate_shares.dart';
+import 'package:splitmybill/features/bill/domain/usecases/save_bill.dart';
 import 'split_state.dart';
 
 /// Владелец активного счёта: распределение позиций, чаевые и итоги.

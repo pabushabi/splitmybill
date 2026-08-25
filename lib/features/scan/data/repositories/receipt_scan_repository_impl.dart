@@ -1,14 +1,14 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/error/exceptions.dart';
-import '../../../../core/utils/result.dart';
-import '../../domain/entities/ocr_result.dart';
-import '../../domain/entities/parsed_receipt.dart';
-import '../../domain/repositories/receipt_scan_repository.dart';
-import '../../domain/services/ocr_engine.dart';
-import '../../domain/services/receipt_parser.dart';
-import '../datasources/camera_permission_data_source.dart';
-import '../datasources/gallery_data_source.dart';
+import 'package:splitmybill/core/error/exceptions.dart';
+import 'package:splitmybill/core/utils/result.dart';
+import 'package:splitmybill/features/scan/domain/entities/ocr_result.dart';
+import 'package:splitmybill/features/scan/domain/entities/parsed_receipt.dart';
+import 'package:splitmybill/features/scan/domain/repositories/receipt_scan_repository.dart';
+import 'package:splitmybill/features/scan/domain/services/ocr_engine.dart';
+import 'package:splitmybill/features/scan/domain/services/receipt_parser.dart';
+import 'package:splitmybill/features/scan/data/datasources/camera_permission_data_source.dart';
+import 'package:splitmybill/features/scan/data/datasources/gallery_data_source.dart';
 
 @LazySingleton(as: ReceiptScanRepository)
 class ReceiptScanRepositoryImpl implements ReceiptScanRepository {

@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/error/failure.dart';
-import '../../../../core/state/cubit_state.dart';
-import '../../domain/entities/bill.dart';
-import '../../domain/usecases/calculate_shares.dart';
-import '../../domain/usecases/delete_bill.dart';
-import '../../domain/usecases/get_bill_history.dart';
+import 'package:splitmybill/core/error/failure.dart';
+import 'package:splitmybill/core/state/cubit_state.dart';
+import 'package:splitmybill/features/bill/domain/entities/bill.dart';
+import 'package:splitmybill/features/bill/domain/usecases/calculate_shares.dart';
+import 'package:splitmybill/features/bill/domain/usecases/delete_bill.dart';
+import 'package:splitmybill/features/bill/domain/usecases/get_bill_history.dart';
 import 'history_state.dart';
 
 @injectable

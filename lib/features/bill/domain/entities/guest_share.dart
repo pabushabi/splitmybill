@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
 import 'share_line.dart';
 
 part 'guest_share.freezed.dart';

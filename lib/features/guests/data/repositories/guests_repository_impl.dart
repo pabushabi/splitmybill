@@ -1,11 +1,11 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/utils/result.dart';
-import '../../domain/entities/guest.dart';
-import '../../domain/repositories/guests_repository.dart';
-import '../datasources/guests_local_data_source.dart';
-import '../mappers/guest_mapper.dart';
-import '../models/guest_dto.dart';
+import 'package:splitmybill/core/utils/result.dart';
+import 'package:splitmybill/features/guests/domain/entities/guest.dart';
+import 'package:splitmybill/features/guests/domain/repositories/guests_repository.dart';
+import 'package:splitmybill/features/guests/data/datasources/guests_local_data_source.dart';
+import 'package:splitmybill/features/guests/data/mappers/guest_mapper.dart';
+import 'package:splitmybill/features/guests/data/models/guest_dto.dart';
 
 @LazySingleton(as: GuestsRepository)
 class GuestsRepositoryImpl implements GuestsRepository {

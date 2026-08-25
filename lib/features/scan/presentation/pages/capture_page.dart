@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../app/router/app_routes.dart';
-import '../../../../core/constants/app_spacing.dart';
-import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/build_context_x.dart';
-import '../cubit/capture_cubit.dart';
-import '../cubit/capture_state.dart';
-import '../widgets/camera_permission_view.dart';
-import '../widgets/camera_round_button.dart';
-import '../widgets/camera_viewfinder.dart';
-import '../widgets/capture_button.dart';
-import '../widgets/receipt_frame_overlay.dart';
+import 'package:splitmybill/app/router/app_routes.dart';
+import 'package:splitmybill/core/constants/app_spacing.dart';
+import 'package:splitmybill/core/constants/app_strings.dart';
+import 'package:splitmybill/core/extensions/build_context_x.dart';
+import 'package:splitmybill/features/scan/presentation/cubit/capture_cubit.dart';
+import 'package:splitmybill/features/scan/presentation/cubit/capture_state.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/camera_permission_view.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/camera_round_button.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/camera_viewfinder.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/capture_button.dart';
+import 'package:splitmybill/features/scan/presentation/widgets/receipt_frame_overlay.dart';
 
 class CapturePage extends StatefulWidget {
   const CapturePage({super.key});
