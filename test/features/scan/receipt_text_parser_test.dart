@@ -97,12 +97,97 @@ void main() {
       expect(item.totalMinor, 64000);
     });
 
+    test('колонки цена / количество шт / сумма не попадают в название', () {
+      final ParsedItem item = parse(
+        'Лимонад Мохито безалкогольный 300мл  390,00  1,00шт  390,00',
+      ).items.single;
+
+      expect(item.title.toLowerCase(), contains('лимонад'));
+      expect(item.title, contains('300мл'));
+      expect(item.title.toLowerCase(), isNot(contains('шт')));
+      expect(item.title, isNot(contains('1,00')));
+      expect(item.title, isNot(contains('390')));
+      expect(item.quantity, 1);
+      expect(item.unitPriceMinor, 39000);
+      expect(item.totalMinor, 39000);
+    });
+
+    test('OCR-мусор вместо шт не попадает в название', () {
+      const List<String> suffixes = <String>['щт', 'wr', 'uwt', 'uwr'];
+      for (final String suffix in suffixes) {
+        for (final String column in <String>['1,00$suffix', '1,00 $suffix']) {
+          final ParsedItem item = parse(
+            'Лимонад Мохито безалкогольный 300мл  390,00  $column  390,00',
+          ).items.single;
+
+          expect(item.title.toLowerCase(), contains('лимонад'), reason: column);
+          expect(item.title, contains('300мл'), reason: column);
+          expect(
+            item.title.toLowerCase(),
+            isNot(contains(suffix)),
+            reason: column,
+          );
+          expect(item.title, isNot(contains('1,00')), reason: column);
+          expect(item.title, isNot(contains('390')), reason: column);
+          expect(item.quantity, 1, reason: column);
+          expect(item.unitPriceMinor, 39000, reason: column);
+          expect(item.totalMinor, 39000, reason: column);
+        }
+      }
+    });
+
+    test('слова вроде «2 сыра» не вырезаются как количество', () {
+      final ParsedItem item = parse('Пицца 2 сыра  590,00').items.single;
+
+      expect(item.title.toLowerCase(), contains('сыра'));
+      expect(item.quantity, 1);
+      expect(item.totalMinor, 59000);
+    });
+
     test('объём в названии не принимается за цену', () {
       final ParsedItem item = parse('Кока-кола 0,5 л  250,00').items.single;
 
       expect(item.title, contains('Кока-кола'));
+      expect(item.title, contains('0,5'));
       expect(item.totalMinor, 25000);
       expect(item.quantity, 1);
+    });
+
+    test('количество с пробелом перед шт тоже вырезается', () {
+      final ParsedItem item = parse(
+        'Ролл Калифорния  350,00  1,00 шт  350,00',
+      ).items.single;
+
+      expect(item.title.toLowerCase(), contains('калифорния'));
+      expect(item.title.toLowerCase(), isNot(contains('шт')));
+      expect(item.quantity, 1);
+      expect(item.totalMinor, 35000);
+    });
+
+    test('2,00шт даёт количество 2, последняя сумма — итог строки', () {
+      final ParsedItem item = parse(
+        'Ролл Филадельфия  450,00  2,00шт  900,00',
+      ).items.single;
+
+      expect(item.title.toLowerCase(), contains('филадельфия'));
+      expect(item.title.toLowerCase(), isNot(contains('шт')));
+      expect(item.quantity, 2);
+      expect(item.unitPriceMinor, 45000);
+      expect(item.totalMinor, 90000);
+    });
+
+    test('перенос названия вставляется перед колонками цены', () {
+      final ParsedItem item = parse(
+        'Темпура ролл с  750,00  1,00шт  750,00\n'
+        'лососем и тунцом',
+      ).items.single;
+
+      expect(item.title.toLowerCase(), contains('темпура'));
+      expect(item.title.toLowerCase(), contains('лососем'));
+      expect(item.title.toLowerCase(), contains('тунцом'));
+      expect(item.title.toLowerCase(), isNot(contains('шт')));
+      expect(item.quantity, 1);
+      expect(item.totalMinor, 75000);
     });
 
     test('порядковый номер позиции отбрасывается', () {

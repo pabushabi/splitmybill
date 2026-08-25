@@ -91,7 +91,8 @@ class ReceiptLineNormalizer {
     return buffer.toString();
   }
 
-  /// Склеивает перенос: название на одной строке, цена на следующей.
+  /// Склеивает переносы названия: цена на следующей строке или хвост имени
+  /// без цены на следующей (как в фискальных чеках с узкой колонкой).
   List<String> mergeWrappedLines(List<String> lines) {
     final List<String> merged = <String>[];
 
@@ -114,9 +115,56 @@ class ReceiptLineNormalizer {
         }
       }
 
+      if (!isLast && currentHasWords && currentHasMoney) {
+        final String next = lines[i + 1].trim();
+        if (_isNameContinuation(next)) {
+          merged.add(_insertBeforeAmountTail(current, next));
+          i++;
+          continue;
+        }
+      }
+
       merged.add(current);
     }
 
     return merged;
+  }
+
+  bool _isNameContinuation(String line) {
+    if (line.isEmpty || line.length > 60) return false;
+    if (ReceiptPatterns.money.hasMatch(line)) return false;
+    if (!ReceiptPatterns.hasLetters.hasMatch(line)) return false;
+    if (ReceiptPatterns.digitsOnly.hasMatch(line)) return false;
+    final String lower = line.toLowerCase();
+    if (ReceiptPatterns.containsAny(lower, ReceiptPatterns.totalKeywords)) {
+      return false;
+    }
+    if (ReceiptPatterns.containsAny(lower, ReceiptPatterns.subtotalKeywords)) {
+      return false;
+    }
+    if (ReceiptPatterns.containsAny(lower, ReceiptPatterns.noiseKeywords)) {
+      return false;
+    }
+    return true;
+  }
+
+  /// Вставляет продолжение названия перед колонками цены и количества.
+  String _insertBeforeAmountTail(String line, String continuation) {
+    final List<String> tokens = line
+        .split(RegExp(r'\s+'))
+        .where((String token) => token.isNotEmpty)
+        .toList();
+    if (tokens.isEmpty) return '$line $continuation';
+
+    int tailStart = tokens.length;
+    while (tailStart > 0 &&
+        ReceiptPatterns.isAmountOrQuantityToken(tokens[tailStart - 1])) {
+      tailStart--;
+    }
+
+    final String name = tokens.sublist(0, tailStart).join(' ');
+    final String tail = tokens.sublist(tailStart).join(' ');
+    if (tail.isEmpty) return '$line $continuation';
+    return '$name $continuation $tail';
   }
 }

@@ -13,8 +13,87 @@ abstract final class ReceiptPatterns {
     r'(\d{1,3}(?:[ \u00A0]\d{3})*(?:[.,\-]\d{1,2})?)',
   );
 
+  /// Количество с коротким суффиксом: `1,00шт`, `1,00uwt`, `2 шт`.
+  ///
+  /// Объём в названии (`300мл`, `0,5 л`) отсекается в [isQuantityColumnMatch].
+  static final RegExp quantityWithUnit = RegExp(
+    r'(?<![\d])(\d+(?:[.,]\d{1,3})?)\s*([A-Za-zА-Яа-яЁё]{1,4})\.?(?![A-Za-zА-Яа-яЁё])',
+    caseSensitive: false,
+  );
+
+  static final RegExp _volumeSuffix = RegExp(
+    r'^(мл|л|кг|г|гр|см|мм|ml|cl|l|kg|g|cm)\.?$',
+    caseSensitive: false,
+  );
+
+  static final RegExp _knownCountSuffix = RegExp(
+    r'^(шт|щт|порц|пор|pcs|pc|sht)\.?$',
+    caseSensitive: false,
+  );
+
+  /// Буквы, в которые OCR чаще всего превращает «шт».
+  static final RegExp _ocrPieceLetters = RegExp(
+    r'^[штщwurtmnиhspyv]+$',
+    caseSensitive: false,
+  );
+
+  static bool isVolumeSuffix(String suffix) =>
+      _volumeSuffix.hasMatch(suffix.trim());
+
+  /// Суффикс колонки количества, включая OCR-мусор вместо «шт».
+  static bool looksLikePieceUnit(String suffix) {
+    final String trimmed = suffix.trim();
+    if (trimmed.isEmpty) return false;
+    if (isVolumeSuffix(trimmed)) return false;
+    if (_knownCountSuffix.hasMatch(trimmed)) return true;
+    if (trimmed.length < 2 || trimmed.length > 4) return false;
+    return _ocrPieceLetters.hasMatch(trimmed.replaceAll('.', ''));
+  }
+
+  static bool isQuantityColumnMatch(RegExpMatch match) {
+    final String? suffix = match.group(2);
+    if (suffix == null) return false;
+    return looksLikePieceUnit(suffix);
+  }
+
+  static Iterable<RegExpMatch> quantityColumnMatches(String line) {
+    return quantityWithUnit.allMatches(line).where(isQuantityColumnMatch);
+  }
+
+  static String stripQuantityColumns(String line) {
+    final List<RegExpMatch> matches = quantityColumnMatches(line).toList();
+    if (matches.isEmpty) return line;
+
+    final StringBuffer buffer = StringBuffer();
+    int last = 0;
+    for (final RegExpMatch match in matches) {
+      buffer.write(line.substring(last, match.start));
+      buffer.write(' ');
+      last = match.end;
+    }
+    buffer.write(line.substring(last));
+    return buffer.toString();
+  }
+
+  static bool isQuantityUnitOnly(String token) => looksLikePieceUnit(token);
+
+  static bool isQuantityToken(String token) {
+    if (isQuantityUnitOnly(token)) return true;
+    final RegExpMatch? match = quantityWithUnit.firstMatch(token);
+    if (match == null || match.start != 0 || match.end != token.length) {
+      return false;
+    }
+    return isQuantityColumnMatch(match);
+  }
+
   /// Токен из одних цифр и разделителей.
   static final RegExp numericToken = RegExp(r'^[\d.,\-]*\d[\d.,\-]*$');
+
+  /// Числовой токен хвоста или количество с единицей / OCR-мусором.
+  static bool isAmountOrQuantityToken(String token) {
+    if (numericToken.hasMatch(token)) return true;
+    return isQuantityToken(token);
+  }
 
   /// Небольшое целое — кандидат в колонку количества.
   static final RegExp countToken = RegExp(r'^\d{1,2}$');

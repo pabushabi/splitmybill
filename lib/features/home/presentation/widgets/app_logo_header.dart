@@ -21,7 +21,7 @@ class AppLogoHeader extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
           ),
           child: Icon(
-            Icons.receipt_long_rounded,
+            Icons.receipt_rounded,
             color: context.colors.onBrand,
             size: 26,
           ),

@@ -62,7 +62,7 @@ class AppColors {
   final Color shimmer;
 
   static const AppColors light = AppColors(
-    brand: Color(0xFF4F46E5),
+    brand: Color(0xFFE07A5F),
     brandSoft: Color(0xFFEEF0FF),
     onBrand: Color(0xFFFFFFFF),
     accent: Color(0xFFF59E0B),
@@ -88,7 +88,7 @@ class AppColors {
   );
 
   static const AppColors dark = AppColors(
-    brand: Color(0xFF818CF8),
+    brand: Color(0xFFE89C87),
     brandSoft: Color(0xFF232A46),
     onBrand: Color(0xFF0B0F19),
     accent: Color(0xFFFBBF24),

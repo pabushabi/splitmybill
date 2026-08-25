@@ -79,7 +79,11 @@ class ReceiptTextParser implements ReceiptParser {
         .replaceFirst(ReceiptPatterns.leadingIndex, '')
         .trim();
 
-    final _TailSplit split = _splitNameAndAmounts(withoutIndex);
+    final _QuantityExtract quantityExtract = _extractQuantityWithUnit(
+      withoutIndex,
+    );
+
+    final _TailSplit split = _splitNameAndAmounts(quantityExtract.line);
 
     final RegExpMatch? quantityMatch = ReceiptPatterns.quantityByPrice
         .firstMatch(withoutIndex);
@@ -94,6 +98,7 @@ class ReceiptTextParser implements ReceiptParser {
       split.tokens,
       patternQuantity,
       patternUnitPrice,
+      extractedQuantity: quantityExtract.quantity,
     );
 
     if (amounts == null) return null;
@@ -113,11 +118,28 @@ class ReceiptTextParser implements ReceiptParser {
     );
   }
 
+  /// Забирает колонку количества `1,00шт` / `1,00uwt`, чтобы она не попала
+  /// ни в название, ни в денежный хвост (иначе `1,00` станет 1 рублём).
+  _QuantityExtract _extractQuantityWithUnit(String line) {
+    final List<RegExpMatch> matches = ReceiptPatterns.quantityColumnMatches(
+      line,
+    ).toList();
+    if (matches.isEmpty) {
+      return _QuantityExtract(line: line, quantity: null);
+    }
+
+    final int? quantity = MoneyParser.parseQuantity(matches.last.group(1));
+    final String stripped = ReceiptPatterns.stripQuantityColumns(
+      line,
+    ).collapsedSpaces;
+    return _QuantityExtract(line: stripped, quantity: quantity);
+  }
+
   /// Отделяет название от хвоста с числами.
   ///
-  /// Хвост — это идущие подряд числовые токены в конце строки. Единицы
-  /// измерения и буквы разрывают хвост, поэтому «Кола 0,5 л 250» даст
-  /// название «Кола 0,5 л» и одно число 250.
+  /// Хвост — числовые токены и количество с единицей в конце строки.
+  /// Объём в названии (`300мл`, `0,5 л`) хвост не начинает, поэтому
+  /// «Кола 0,5 л 250» даст название «Кола 0,5 л» и одно число 250.
   _TailSplit _splitNameAndAmounts(String line) {
     final List<String> tokens = line
         .split(RegExp(r'\s+'))
@@ -127,7 +149,7 @@ class ReceiptTextParser implements ReceiptParser {
 
     int tailStart = tokens.length;
     while (tailStart > 0 &&
-        ReceiptPatterns.numericToken.hasMatch(tokens[tailStart - 1])) {
+        ReceiptPatterns.isAmountOrQuantityToken(tokens[tailStart - 1])) {
       tailStart--;
     }
 
@@ -141,8 +163,19 @@ class ReceiptTextParser implements ReceiptParser {
   _ItemAmounts? _resolveAmounts(
     List<String> tokens,
     int? patternQuantity,
-    int? patternUnitPrice,
-  ) {
+    int? patternUnitPrice, {
+    int? extractedQuantity,
+  }) {
+    if (extractedQuantity != null &&
+        extractedQuantity > 0 &&
+        extractedQuantity <= _maxReasonableQuantity) {
+      final _ItemAmounts? fromUnit = _amountsFromExtractedQuantity(
+        tokens,
+        extractedQuantity,
+      );
+      if (fromUnit != null) return fromUnit;
+    }
+
     // Раскладка «количество, цена, сумма» в отдельных колонках.
     if (tokens.length >= 3 && patternQuantity == null) {
       final _ItemAmounts? columns = _tryQuantityColumns(tokens);
@@ -197,6 +230,31 @@ class ReceiptTextParser implements ReceiptParser {
     return _ItemAmounts(quantity: 1, unitPriceMinor: total, totalMinor: total);
   }
 
+  /// Колонки `цена  кол-во шт  сумма`: последнее число — итог строки.
+  _ItemAmounts? _amountsFromExtractedQuantity(
+    List<String> tokens,
+    int quantity,
+  ) {
+    final List<int> values = _parseAmounts(tokens);
+    if (values.isEmpty) return null;
+
+    final int total = values.last;
+    int unitPrice = quantity > 1 ? total ~/ quantity : total;
+
+    if (values.length >= 2) {
+      final int candidateUnit = values[values.length - 2];
+      if (candidateUnit > 0 && candidateUnit * quantity == total) {
+        unitPrice = candidateUnit;
+      }
+    }
+
+    return _ItemAmounts(
+      quantity: quantity,
+      unitPriceMinor: unitPrice,
+      totalMinor: total,
+    );
+  }
+
   /// Проверяет раскладку `2  320,00  640,00`, где сумма равна произведению.
   _ItemAmounts? _tryQuantityColumns(List<String> tokens) {
     if (!ReceiptPatterns.countToken.hasMatch(tokens.first)) return null;
@@ -218,10 +276,19 @@ class ReceiptTextParser implements ReceiptParser {
   }
 
   /// Разбирает числовые токены, склеивая разряды тысяч: `1` + `850,00`.
+  ///
+  /// Количество с единицей пропускается: `1,00шт` — это не рубль.
   List<int> _parseAmounts(List<String> tokens) {
     final List<int> values = <int>[];
 
     for (int i = 0; i < tokens.length; i++) {
+      if (_isQuantityToken(tokens[i])) continue;
+      if (i + 1 < tokens.length &&
+          ReceiptPatterns.isQuantityUnitOnly(tokens[i + 1]) &&
+          ReceiptPatterns.numericToken.hasMatch(tokens[i])) {
+        continue;
+      }
+
       final bool isThousandsGroup =
           i + 1 < tokens.length &&
           ReceiptPatterns.thousandsHead.hasMatch(tokens[i]) &&
@@ -237,9 +304,12 @@ class ReceiptTextParser implements ReceiptParser {
     return values;
   }
 
+  bool _isQuantityToken(String token) {
+    return ReceiptPatterns.isQuantityToken(token);
+  }
+
   String _cleanTitle(String raw) {
-    String title = raw
-        .replaceAll(ReceiptPatterns.units, ' ')
+    String title = ReceiptPatterns.stripQuantityColumns(raw)
         .replaceAll(RegExp(r'[xXхХ*]\s*$'), ' ')
         .replaceAll(RegExp(r'^[^A-Za-zА-Яа-яЁё]+'), '')
         .replaceAll(RegExp(r'[\s.,\-:;]+$'), '')
@@ -279,6 +349,13 @@ class ReceiptTextParser implements ReceiptParser {
     if (matches.isEmpty) return null;
     return MoneyParser.parse(matches.last.group(0));
   }
+}
+
+class _QuantityExtract {
+  const _QuantityExtract({required this.line, required this.quantity});
+
+  final String line;
+  final int? quantity;
 }
 
 class _TailSplit {
